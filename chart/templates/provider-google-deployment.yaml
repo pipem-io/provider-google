@@ -5,6 +5,7 @@ metadata:
   labels:
     app: pipem.io
     component: provider-google
+    role: provider
 spec:
   replicas: {{ .Values.replicas }}
   selector:
