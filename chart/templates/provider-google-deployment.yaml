@@ -15,6 +15,7 @@ spec:
     metadata:
       labels:
         component: provider-google
+        role: provider
     spec:
       containers:
         - name: provider-google
