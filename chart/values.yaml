@@ -1,5 +1,7 @@
 image: docker.pipem.io/provider-google
 version: VERSION
 
+replicas: 1
+
 log:
   level: "info"
