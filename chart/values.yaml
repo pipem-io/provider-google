@@ -5,3 +5,5 @@ replicas: 1
 
 log:
   level: "info"
+
+provider: google

@@ -16,15 +16,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set tag
-        run: echo "::set-output name=VERSION_TAG::$(git describe --dirty --always --tags | sed 's/-/./2' | sed 's/-/./2' )"
-        id: tagger
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
 
       - name: Replace Version in Chart.yaml
-        run: sed -i 's/VERSION/${{ steps.tagger.outputs.VERSION_TAG }}/g' ./chart/Chart.yaml
+        run: sed -i 's/VERSION/${{ steps.tag.outputs.tag }}/g' ./chart/Chart.yaml
 
       - name: Replace Version in values.yaml
-        run: sed -i 's/VERSION/${{ steps.tagger.outputs.VERSION_TAG }}/g' ./chart/values.yaml
+        run: sed -i 's/VERSION/${{ steps.tag.outputs.tag }}/g' ./chart/values.yaml
 
       - name: Publish Helm chart
         uses: stefanprodan/helm-gh-pages@master
