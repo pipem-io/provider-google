@@ -1,4 +1,4 @@
-name: Build stable Docker image (tags)
+name: Release helm chart
 
 on:
   push:
