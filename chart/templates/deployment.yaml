@@ -18,6 +18,7 @@ spec:
         component: provider-{{ .Values.provider }}
         role: provider
     spec:
+      serviceAccountName: pipem-sa
       containers:
         - name: provider-{{ .Values.provider }}
           image: {{ .Values.image }}:{{ .Values.version }}
